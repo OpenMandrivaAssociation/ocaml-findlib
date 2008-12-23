@@ -4,7 +4,7 @@
 %define release	%mkrel 1
 
 Summary:	A module packaging tool for OCaml
-Name:		findlib
+Name:		%{name}
 Version:	%{version}
 Release:	%{release}
 Group:		Development/Other
