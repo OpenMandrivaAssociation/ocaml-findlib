@@ -33,7 +33,7 @@ packages.
 
 %package devel
 Summary:    Development files for %{name}
-Group:      Development/Libraries
+Group:      Development/Other
 Requires:   %{name} = %{version}-%{release}
 
 
