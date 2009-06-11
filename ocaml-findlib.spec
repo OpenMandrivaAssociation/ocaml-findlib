@@ -1,6 +1,6 @@
 %define up_name	findlib
 %define name	ocaml-%{up_name}
-%define version	1.2.3
+%define version	1.2.4
 %define release	%mkrel 1
 
 Summary:	A module packaging tool for OCaml
