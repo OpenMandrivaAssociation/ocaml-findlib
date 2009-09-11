@@ -57,6 +57,26 @@ make all opt
 rm -rf %{buildroot}
 %make prefix=%{buildroot} PREFIX=%{buildroot} install 
 
+# don't ship META files for standard library in this package,
+# they are included in ocaml package,
+# [IMPORTANT] so when this package is updated, update too
+# the tarball that contain these files (Source5) in the ocaml package!
+rm -f %{buildroot}%{_libdir}/ocaml/bigarray/META
+rm -f %{buildroot}%{_libdir}/ocaml/camlp4/META
+rm -f %{buildroot}%{_libdir}/ocaml/dbm/META
+rm -f %{buildroot}%{_libdir}/ocaml/dynlink/META
+rm -f %{buildroot}%{_libdir}/ocaml/graphics/META
+rm -f %{buildroot}%{_libdir}/ocaml/labltk/META
+rm -f %{buildroot}%{_libdir}/ocaml/num/META
+rm -f %{buildroot}%{_libdir}/ocaml/num-top/META
+rm -f %{buildroot}%{_libdir}/ocaml/stdlib/META
+rm -f %{buildroot}%{_libdir}/ocaml/str/META
+rm -f %{buildroot}%{_libdir}/ocaml/threads/META
+rm -f %{buildroot}%{_libdir}/ocaml/unix/META
+# In order to update the [Source5] field of ocaml.spec,
+# in the findlib source directory run the ./configure script
+# with camlp4 and ocaml-labltk properly installed, then:
+# tar cfj  findlib-1.2.4-ocaml-3.11.1-meta-files.tar.bz2  site-lib-src/*/META
 
 %clean
 rm -rf %{buildroot}
@@ -76,17 +96,6 @@ rm -rf %{buildroot}
 %exclude %{_libdir}/ocaml/findlib/Makefile.config
 %exclude %{_libdir}/ocaml/findlib/make_wizard
 %exclude %{_libdir}/ocaml/findlib/make_wizard.pattern
-%{_libdir}/ocaml/bigarray/META
-%{_libdir}/ocaml/camlp4/META
-%{_libdir}/ocaml/dbm/META
-%{_libdir}/ocaml/dynlink/META
-%{_libdir}/ocaml/graphics/META
-%{_libdir}/ocaml/labltk/META
-%{_libdir}/ocaml/num/META
-%{_libdir}/ocaml/stdlib/META
-%{_libdir}/ocaml/str/META
-%{_libdir}/ocaml/threads/META
-%{_libdir}/ocaml/unix/META
 
 %files devel
 %defattr(-,root,root,-)
