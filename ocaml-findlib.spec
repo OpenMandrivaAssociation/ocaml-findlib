@@ -1,7 +1,7 @@
 %define up_name	findlib
 %define name	ocaml-%{up_name}
 %define version	1.2.4
-%define release	%mkrel 4
+%define release	%mkrel 5
 
 Summary:	A module packaging tool for OCaml
 Name:		%{name}
@@ -51,7 +51,10 @@ developing applications that use %{name}.
     -config %{_sysconfdir}/findlib.conf \
     -sitelib `ocamlc -where` \
     -with-toolbox
-make all opt
+make all
+%ifnarch %arm %mips
+make opt
+%endif
 
 %install
 rm -rf %{buildroot}
