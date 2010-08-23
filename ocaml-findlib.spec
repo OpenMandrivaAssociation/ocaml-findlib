@@ -1,12 +1,10 @@
 %define up_name	findlib
 %define name	ocaml-%{up_name}
-%define version	1.2.4
-%define release	%mkrel 5
 
 Summary:	A module packaging tool for OCaml
 Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Version:	1.2.6
+Release:	%mkrel 1
 Group:		Development/Other
 License:	MIT-style
 Url:		http://www.ocaml-programming.de/packages/documentation/findlib/
@@ -76,6 +74,7 @@ rm -f %{buildroot}%{_libdir}/ocaml/stdlib/META
 rm -f %{buildroot}%{_libdir}/ocaml/str/META
 rm -f %{buildroot}%{_libdir}/ocaml/threads/META
 rm -f %{buildroot}%{_libdir}/ocaml/unix/META
+rm -f %{buildroot}%{_libdir}/ocaml/ocamlbuild/META
 # In order to update the [Source5] field of ocaml.spec,
 # in the findlib source directory run the ./configure script
 # with camlp4 and ocaml-labltk properly installed, then:
@@ -86,7 +85,7 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
-%doc README INSTALL LICENSE doc
+%doc LICENSE
 %config(noreplace) %{_sysconfdir}/findlib.conf
 %{_bindir}/*
 %{_mandir}/man*/*
@@ -102,7 +101,7 @@ rm -rf %{buildroot}
 
 %files devel
 %defattr(-,root,root,-)
-%doc LICENSE doc/README doc/guide-html
+%doc LICENSE doc doc/README doc/guide-html
 %{_libdir}/ocaml/findlib/*.a
 %{_libdir}/ocaml/findlib/*.cmxa
 %{_libdir}/ocaml/findlib/*.mli
