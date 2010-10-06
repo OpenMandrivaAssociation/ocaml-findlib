@@ -4,7 +4,7 @@
 Summary:	A module packaging tool for OCaml
 Name:		%{name}
 Version:	1.2.6
-Release:	%mkrel 1
+Release:	%mkrel 2
 Group:		Development/Other
 License:	MIT-style
 Url:		http://www.ocaml-programming.de/packages/documentation/findlib/
