@@ -3,7 +3,7 @@
 Summary:	A module packaging tool for OCaml
 Name:		ocaml-%{up_name}
 Version:	1.2.7
-Release:	1
+Release:	2
 Group:		Development/Other
 License:	MIT-style
 Url:		http://www.ocaml-programming.de/packages/documentation/findlib/
@@ -12,6 +12,9 @@ BuildRequires:	ocaml >= 0:3.10
 BuildRequires:	camlp4
 BuildRequires:	ocaml-labltk
 BuildRequires:	ncurses-devel
+# adding this versioned ocaml dependency to ensure that it's built against
+# current ocaml, to provide the proper META files for it...
+Requires:	ocaml = %(rpm -q --qf '%{VERSION}' ocaml)
 Obsoletes:      %{up_name}
 
 %description
