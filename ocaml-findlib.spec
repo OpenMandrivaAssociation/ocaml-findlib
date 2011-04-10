@@ -47,9 +47,9 @@ developing applications that use %{name}.
     -config %{_sysconfdir}/findlib.conf \
     -sitelib `ocamlc -where` \
     -with-toolbox
-make all
+%make all
 %ifnarch %arm %mips
-make opt
+%make opt
 %endif
 
 %install
