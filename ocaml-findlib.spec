@@ -13,7 +13,6 @@ BuildRequires:	camlp4
 BuildRequires:	ocaml-labltk
 BuildRequires:	ncurses-devel
 Obsoletes:      %{up_name}
-BuildRoot:      %{_tmppath}/%{name}-%{version}
 
 %description
 The findlib library provides a scheme to manage reusable software
@@ -28,13 +27,13 @@ command-line. In order to simplify compilation and linkage, there are
 new frontends of the various OCaml compilers that can directly deal with
 packages.
 
-%package devel
-Summary:    Development files for %{name}
-Group:      Development/Other
-Requires:   %{name} = %{version}-%{release}
+%package	devel
+Summary:	Development files for %{name}
+Group:		Development/Other
+Requires:	%{name} = %{version}-%{release}
 
 
-%description devel
+%description	devel
 The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
 
@@ -54,7 +53,6 @@ make opt
 %endif
 
 %install
-rm -rf %{buildroot}
 %make prefix=%{buildroot} PREFIX=%{buildroot} install 
 
 # don't ship META files for standard library in this package,
@@ -79,11 +77,7 @@ rm -f %{buildroot}%{_libdir}/ocaml/ocamlbuild/META
 # with camlp4 and ocaml-labltk properly installed, then:
 # tar cfj  findlib-1.2.4-ocaml-3.11.1-meta-files.tar.bz2  site-lib-src/*/META
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %doc LICENSE
 %config(noreplace) %{_sysconfdir}/findlib.conf
 %{_bindir}/*
@@ -99,7 +93,6 @@ rm -rf %{buildroot}
 %exclude %{_libdir}/ocaml/findlib/make_wizard.pattern
 
 %files devel
-%defattr(-,root,root,-)
 %doc LICENSE doc doc/README doc/guide-html
 %{_libdir}/ocaml/findlib/*.a
 %{_libdir}/ocaml/findlib/*.cmxa
