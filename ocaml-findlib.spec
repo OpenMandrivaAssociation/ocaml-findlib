@@ -2,12 +2,13 @@
 
 Summary:	A module packaging tool for OCaml
 Name:		ocaml-%{up_name}
-Version:	1.2.7
-Release:	4
+Version:	1.3.3
+Release:	1
 Group:		Development/Other
 License:	MIT-style
 Url:		http://www.ocaml-programming.de/packages/documentation/findlib/
 Source0:	http://www.ocaml-programming.de/packages/%{up_name}-%{version}.tar.gz
+Source100:	%name.rpmlintrc
 BuildRequires:	ocaml >= 0:3.10
 BuildRequires:	camlp4
 BuildRequires:	ocaml-labltk
@@ -85,6 +86,7 @@ rm -f %{buildroot}%{_libdir}/ocaml/ocamlbuild/META
 %config(noreplace) %{_sysconfdir}/findlib.conf
 %{_bindir}/*
 %{_mandir}/man*/*
+%{_libdir}/ocaml/compiler-libs
 %{_libdir}/ocaml/findlib
 %{_libdir}/ocaml/topfind
 %{_libdir}/ocaml/num-top
