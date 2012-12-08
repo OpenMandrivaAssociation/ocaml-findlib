@@ -2,20 +2,16 @@
 
 Summary:	A module packaging tool for OCaml
 Name:		ocaml-%{up_name}
-Version:	1.3.3
+Version:	1.2.7
 Release:	1
 Group:		Development/Other
 License:	MIT-style
 Url:		http://www.ocaml-programming.de/packages/documentation/findlib/
 Source0:	http://www.ocaml-programming.de/packages/%{up_name}-%{version}.tar.gz
-Source100:	%name.rpmlintrc
 BuildRequires:	ocaml >= 0:3.10
 BuildRequires:	camlp4
 BuildRequires:	ocaml-labltk
 BuildRequires:	ncurses-devel
-# adding this versioned ocaml dependency to ensure that it's built against
-# current ocaml, to provide the proper META files for it...
-Requires:	ocaml = %(rpm -q --qf '%{VERSION}' ocaml)
 Obsoletes:      %{up_name}
 
 %description
@@ -86,7 +82,6 @@ rm -f %{buildroot}%{_libdir}/ocaml/ocamlbuild/META
 %config(noreplace) %{_sysconfdir}/findlib.conf
 %{_bindir}/*
 %{_mandir}/man*/*
-%{_libdir}/ocaml/compiler-libs
 %{_libdir}/ocaml/findlib
 %{_libdir}/ocaml/topfind
 %{_libdir}/ocaml/num-top
@@ -105,3 +100,84 @@ rm -f %{buildroot}%{_libdir}/ocaml/ocamlbuild/META
 %{_libdir}/ocaml/findlib/Makefile.config
 %{_libdir}/ocaml/findlib/make_wizard
 %{_libdir}/ocaml/findlib/make_wizard.pattern
+
+
+%changelog
+* Sun Apr 10 2011 Per Øyvind Karlsen <peroyvind@mandriva.org> 1.2.7-1
++ Revision: 652334
+- do parallel build
+- cleanups
+- new version
+
+* Wed Oct 06 2010 Funda Wang <fwang@mandriva.org> 1.2.6-2mdv2011.0
++ Revision: 583377
+- rebuild for ocaml
+
+* Mon Aug 23 2010 Florent Monnier <blue_prawn@mandriva.org> 1.2.6-1mdv2011.0
++ Revision: 572365
+- updated to last version 1.2.6
+
+* Fri Sep 25 2009 Olivier Blin <oblin@mandriva.com> 1.2.4-5mdv2010.0
++ Revision: 448919
+- fix build on platforms without ocaml*opt, by disabling make opt on
+  arm & mips (from Arnaud Patard)
+
+* Fri Sep 11 2009 Florent Monnier <blue_prawn@mandriva.org> 1.2.4-4mdv2010.0
++ Revision: 438522
+- restore the previous management of the META files of the standard library
+
+* Wed Sep 09 2009 Florent Monnier <blue_prawn@mandriva.org> 1.2.4-3mdv2010.0
++ Revision: 435980
+- along with the "revision 435784" of the package ocaml, it will be easier to keep these META files up to date in this package
+
+* Sat Jun 27 2009 Guillaume Rousse <guillomovitch@mandriva.org> 1.2.4-2mdv2010.0
++ Revision: 389775
+- rebuild
+
+* Thu Jun 11 2009 Florent Monnier <blue_prawn@mandriva.org> 1.2.4-1mdv2010.0
++ Revision: 385095
+- updated version
+
+* Wed Dec 24 2008 Guillaume Rousse <guillomovitch@mandriva.org> 1.2.3-1mdv2009.1
++ Revision: 318141
+- rename package from findlib, for general consistency with ocaml naming policy
+- use standard ocaml lib directory root for packages installation, instead of
+  site-libe hierarchy, as per fedora and debian policies
+- new version
+- no more mini subpackage, but new devel subpackage
+- build toolbox, as per fedora package
+- package renaming
+
+* Tue Dec 09 2008 Pixel <pixel@mandriva.com> 0:1.2.2-2mdv2009.1
++ Revision: 312166
+- rebuild
+
+* Thu Aug 14 2008 Guillaume Rousse <guillomovitch@mandriva.org> 0:1.2.2-1mdv2009.0
++ Revision: 272039
+- new version
+
+* Tue Mar 04 2008 Stefan van der Eijk <stefan@mandriva.org> 0:1.1.2-0.pl1.3mdv2008.1
++ Revision: 178241
+- rebuild
+
+* Fri Dec 21 2007 Olivier Blin <oblin@mandriva.com> 0:1.1.2-0.pl1.2mdv2008.1
++ Revision: 136415
+- restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
+* Tue Sep 18 2007 Guillaume Rousse <guillomovitch@mandriva.org> 0:1.1.2-0.pl1.2mdv2008.0
++ Revision: 89641
+- rebuild
+
+* Thu Jun 07 2007 Per Øyvind Karlsen <peroyvind@mandriva.org> 0:1.1.2-0.pl1.1mdv2008.0
++ Revision: 36818
+- new release: 1.1.2pl3
+- fix installation of safe_camlp4 (P0)
+- wipe out buildroot before install
+
+* Tue May 29 2007 Pixel <pixel@mandriva.com> 0:1.1.1-7mdv2008.0
++ Revision: 32507
+- rebuild with new ocaml
+
