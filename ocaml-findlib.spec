@@ -1,4 +1,5 @@
 %define up_name	findlib
+%define debug_package          %{nil}
 
 Summary:	A module packaging tool for OCaml
 Name:		ocaml-%{up_name}
