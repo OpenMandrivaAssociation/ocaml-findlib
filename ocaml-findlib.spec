@@ -85,6 +85,7 @@ rm -f %{buildroot}%{_libdir}/ocaml/ocamlbuild/META
 %{_libdir}/ocaml/findlib
 %{_libdir}/ocaml/topfind
 %{_libdir}/ocaml/num-top
+%{_libdir}/ocmal/compiler-libs
 %exclude %{_libdir}/ocaml/findlib/*.a
 %exclude %{_libdir}/ocaml/findlib/*.cmxa
 %exclude %{_libdir}/ocaml/findlib/*.mli
