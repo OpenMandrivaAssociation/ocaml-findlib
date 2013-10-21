@@ -94,10 +94,11 @@ rm -f %{buildroot}%{_libdir}/ocaml/ocamlbuild/META
 
 %files devel
 %doc LICENSE doc doc/README doc/guide-html
+%ifnarch %arm
 %{_libdir}/ocaml/findlib/*.a
 %{_libdir}/ocaml/findlib/*.cmxa
+%endif
 %{_libdir}/ocaml/findlib/*.mli
 %{_libdir}/ocaml/findlib/Makefile.config
 %{_libdir}/ocaml/findlib/make_wizard
 %{_libdir}/ocaml/findlib/make_wizard.pattern
-
