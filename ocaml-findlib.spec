@@ -4,7 +4,7 @@
 Summary:	A module packaging tool for OCaml
 Name:		ocaml-%{up_name}
 Version:	1.3.3
-Release:	2
+Release:	3
 Group:		Development/Other
 License:	MIT-style
 Url:		http://www.ocaml-programming.de/packages/documentation/findlib/
