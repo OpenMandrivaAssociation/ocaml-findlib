@@ -3,16 +3,18 @@
 
 Summary:	A module packaging tool for OCaml
 Name:		ocaml-%{up_name}
-Version:	1.3.3
-Release:	6
+Version:	1.4
+Release:	1
 Group:		Development/Other
 License:	MIT-style
-Url:		http://www.ocaml-programming.de/packages/documentation/findlib/
-Source0:	http://www.ocaml-programming.de/packages/%{up_name}-%{version}.tar.gz
-BuildRequires:	ocaml >= 0:3.10
-BuildRequires:	camlp4
-BuildRequires:	ocaml-labltk
+Url:            http://projects.camlcity.org/projects/findlib.html
+Source0:        http://download.camlcity.org/download/%{up_name}-%{version}.tar.gz
+BuildRequires:  ocaml-compiler
+BuildRequires:  ocaml-compiler-libs
+BuildRequires:  camlp4
+BuildRequires:  ocaml-labltk
 BuildRequires:	pkgconfig(ncurses)
+Requires:       ocaml-compiler = %(rpm -q --qf '%{VERSION}' ocaml-compiler)
 Obsoletes:      %{up_name}
 
 %description
@@ -71,6 +73,7 @@ rm -f %{buildroot}%{_libdir}/ocaml/str/META
 rm -f %{buildroot}%{_libdir}/ocaml/threads/META
 rm -f %{buildroot}%{_libdir}/ocaml/unix/META
 rm -f %{buildroot}%{_libdir}/ocaml/ocamlbuild/META
+rm -f %{buildroot}%{_libdir}/ocaml/compiler-libs/META
 # In order to update the [Source5] field of ocaml.spec,
 # in the findlib source directory run the ./configure script
 # with camlp4 and ocaml-labltk properly installed, then:
