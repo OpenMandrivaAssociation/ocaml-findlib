@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   findlib-1.4.tar.gz: 07048076758e4ca892f06ff535d7cab033833bde
+sources:
+  findlib-1.4.1.tar.gz: c8a4568826ea2469230d4f1fb9493cb0c6f60f36
