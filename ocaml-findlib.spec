@@ -1,10 +1,12 @@
 %define up_name	findlib
 %define debug_package          %{nil}
+# hacky workaround to be fixed!
+%define __noautoreq '/usr/bin/ocamlrun'
 
 Summary:	A module packaging tool for OCaml
 Name:		ocaml-%{up_name}
 Version:	1.4.1
-Release:	1
+Release:	2
 Group:		Development/Other
 License:	MIT-style
 Url:            http://projects.camlcity.org/projects/findlib.html
