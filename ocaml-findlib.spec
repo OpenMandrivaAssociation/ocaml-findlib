@@ -5,8 +5,8 @@
 
 Summary:	A module packaging tool for OCaml
 Name:		ocaml-%{up_name}
-Version:	1.4.1
-Release:	3
+Version:	1.5.5
+Release:	1
 Group:		Development/Other
 License:	MIT-style
 Url:            http://projects.camlcity.org/projects/findlib.html
@@ -14,7 +14,7 @@ Source0:        http://download.camlcity.org/download/%{up_name}-%{version}.tar.
 BuildRequires:  ocaml-compiler
 BuildRequires:  ocaml-compiler-libs
 BuildRequires:  ocaml-camlp4
-BuildRequires:  ocaml-labltk
+BuildRequires:  ocaml-x11
 BuildRequires:	pkgconfig(ncurses)
 Requires:       ocaml-compiler = %(rpm -q --qf '%{VERSION}' ocaml-compiler)
 Obsoletes:      %{up_name}
@@ -86,6 +86,7 @@ rm -f %{buildroot}%{_libdir}/ocaml/compiler-libs/META
 %config(noreplace) %{_sysconfdir}/findlib.conf
 %{_bindir}/*
 %{_mandir}/man*/*
+%{_libdir}/ocaml/bytes
 %{_libdir}/ocaml/findlib
 %{_libdir}/ocaml/topfind
 %{_libdir}/ocaml/num-top
@@ -96,8 +97,6 @@ rm -f %{buildroot}%{_libdir}/ocaml/compiler-libs/META
 %endif
 %exclude %{_libdir}/ocaml/findlib/*.mli
 %exclude %{_libdir}/ocaml/findlib/Makefile.config
-%exclude %{_libdir}/ocaml/findlib/make_wizard
-%exclude %{_libdir}/ocaml/findlib/make_wizard.pattern
 
 %files devel
 %doc LICENSE doc doc/README doc/guide-html
@@ -107,5 +106,3 @@ rm -f %{buildroot}%{_libdir}/ocaml/compiler-libs/META
 %endif
 %{_libdir}/ocaml/findlib/*.mli
 %{_libdir}/ocaml/findlib/Makefile.config
-%{_libdir}/ocaml/findlib/make_wizard
-%{_libdir}/ocaml/findlib/make_wizard.pattern
