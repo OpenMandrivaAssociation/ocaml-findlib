@@ -6,7 +6,7 @@
 Summary:	A module packaging tool for OCaml
 Name:		ocaml-%{up_name}
 Version:	1.5.5
-Release:	1
+Release:	2
 Group:		Development/Other
 License:	MIT-style
 Url:            http://projects.camlcity.org/projects/findlib.html
@@ -58,39 +58,25 @@ developing applications that use %{name}.
 %install
 %make prefix=%{buildroot} PREFIX=%{buildroot} install 
 
-# don't ship META files for standard library in this package,
-# they are included in ocaml package,
-# [IMPORTANT] so when this package is updated, update too
-# the tarball that contain these files (Source5) in the ocaml package!
-rm -f %{buildroot}%{_libdir}/ocaml/bigarray/META
-rm -f %{buildroot}%{_libdir}/ocaml/camlp4/META
-rm -f %{buildroot}%{_libdir}/ocaml/dbm/META
-rm -f %{buildroot}%{_libdir}/ocaml/dynlink/META
-rm -f %{buildroot}%{_libdir}/ocaml/graphics/META
-rm -f %{buildroot}%{_libdir}/ocaml/labltk/META
-rm -f %{buildroot}%{_libdir}/ocaml/num/META
-rm -f %{buildroot}%{_libdir}/ocaml/num-top/META
-rm -f %{buildroot}%{_libdir}/ocaml/stdlib/META
-rm -f %{buildroot}%{_libdir}/ocaml/str/META
-rm -f %{buildroot}%{_libdir}/ocaml/threads/META
-rm -f %{buildroot}%{_libdir}/ocaml/unix/META
-rm -f %{buildroot}%{_libdir}/ocaml/ocamlbuild/META
-rm -f %{buildroot}%{_libdir}/ocaml/compiler-libs/META
-# In order to update the [Source5] field of ocaml.spec,
-# in the findlib source directory run the ./configure script
-# with camlp4 and ocaml-labltk properly installed, then:
-# tar cfj  findlib-1.2.4-ocaml-3.11.1-meta-files.tar.bz2  site-lib-src/*/META
-
 %files
 %doc LICENSE
 %config(noreplace) %{_sysconfdir}/findlib.conf
 %{_bindir}/*
 %{_mandir}/man*/*
+%{_libdir}/ocaml/bigarray
 %{_libdir}/ocaml/bytes
+%{_libdir}/ocaml/compiler-libs/META
+%{_libdir}/ocaml/dynlink
 %{_libdir}/ocaml/findlib
-%{_libdir}/ocaml/topfind
+%{_libdir}/ocaml/graphics
+%{_libdir}/ocaml/num
 %{_libdir}/ocaml/num-top
-%{_libdir}/ocaml/compiler-libs
+%{_libdir}/ocaml/ocamlbuild/META
+%{_libdir}/ocaml/stdlib
+%{_libdir}/ocaml/str
+%{_libdir}/ocaml/threads/META
+%{_libdir}/ocaml/topfind
+%{_libdir}/ocaml/unix
 %ifnarch %arm
 %exclude %{_libdir}/ocaml/findlib/*.a
 %exclude %{_libdir}/ocaml/findlib/*.cmxa
