@@ -13,7 +13,7 @@ Url:            http://projects.camlcity.org/projects/findlib.html
 Source0:        http://download.camlcity.org/download/%{up_name}-%{version}.tar.gz
 BuildRequires:  ocaml-compiler
 BuildRequires:  ocaml-compiler-libs
-BuildRequires:  camlp4
+BuildRequires:  ocaml-camlp4
 BuildRequires:  ocaml-labltk
 BuildRequires:	pkgconfig(ncurses)
 Requires:       ocaml-compiler = %(rpm -q --qf '%{VERSION}' ocaml-compiler)
