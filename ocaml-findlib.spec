@@ -6,7 +6,7 @@
 Summary:	A module packaging tool for OCaml
 Name:		ocaml-%{up_name}
 Version:	1.5.5
-Release:	3
+Release:	4
 Group:		Development/Other
 License:	MIT-style
 Url:            http://projects.camlcity.org/projects/findlib.html
