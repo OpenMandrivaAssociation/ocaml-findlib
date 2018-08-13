@@ -5,8 +5,8 @@
 
 Summary:	A module packaging tool for OCaml
 Name:		ocaml-%{up_name}
-Version:	1.5.5
-Release:	5
+Version:	1.8.0
+Release:	1
 Group:		Development/Other
 License:	MIT-style
 Url:            http://projects.camlcity.org/projects/findlib.html
@@ -69,13 +69,13 @@ developing applications that use %{name}.
 %{_libdir}/ocaml/dynlink
 %{_libdir}/ocaml/findlib
 %{_libdir}/ocaml/graphics
-%{_libdir}/ocaml/num
-%{_libdir}/ocaml/num-top
-%{_libdir}/ocaml/ocamlbuild/META
 %{_libdir}/ocaml/stdlib
 %{_libdir}/ocaml/str
 %{_libdir}/ocaml/threads/META
 %{_libdir}/ocaml/topfind
+%{_libdir}/ocaml/raw_spacetime/META
+%{_libdir}/ocaml/ocamldoc/META
+
 %{_libdir}/ocaml/unix
 %ifnarch %arm
 %exclude %{_libdir}/ocaml/findlib/*.a
