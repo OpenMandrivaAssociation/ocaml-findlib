@@ -2,6 +2,7 @@
 %define debug_package          %{nil}
 # hacky workaround to be fixed!
 %define __noautoreq '/usr/bin/ocamlrun'
+%global ocaml_version %(rpm -q --qf '%{VERSION}' ocaml-compiler)
 
 Summary:	A module packaging tool for OCaml
 Name:		ocaml-%{up_name}
@@ -16,7 +17,7 @@ BuildRequires:  ocaml-compiler-libs
 BuildRequires:  ocaml-camlp4
 BuildRequires:  ocaml-x11
 BuildRequires:	pkgconfig(ncurses)
-Requires:       ocaml-compiler = %(rpm -q --qf '%{VERSION}' ocaml-compiler)
+Requires:       ocaml-compiler = %{ocaml_version}
 Obsoletes:      %{up_name}
 
 %description
