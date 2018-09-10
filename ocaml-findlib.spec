@@ -2,6 +2,7 @@
 %define debug_package          %{nil}
 # hacky workaround to be fixed!
 %define __noautoreq '/usr/bin/ocamlrun'
+%define __ocaml_requires %nil
 %global ocaml_version %(rpm -q --qf '%{VERSION}' ocaml-compiler)
 
 Summary:	A module packaging tool for OCaml
@@ -46,22 +47,30 @@ developing applications that use %{name}.
 %setup -q -n %{up_name}-%{version}
 
 %build
-./configure \
-	-mandir %{_mandir} \
-	-config %{_sysconfdir}/findlib.conf \
-	-sitelib `ocamlc -where` \
-	-with-toolbox
-%make all
-%ifnarch %arm %mips
-%make opt
+
+ocamlc -version
+ocamlc -where
+(cd tools/extract_args && make)
+tools/extract_args/extract_args -o src/findlib/ocaml_args.ml ocamlc ocamlcp ocamlmktop ocamlopt ocamldep ocamldoc ||:
+cat src/findlib/ocaml_args.ml
+./configure -config %{_sysconfdir}/ocamlfind.conf \
+  -bindir %{_bindir} \
+  -sitelib `ocamlc -where` \
+  -mandir %{_mandir} \
+  -with-toolbox
+make all
+%ifnarch %{arm}
+make opt
 %endif
+rm doc/guide-html/TIMESTAMP
+%make all
 
 %install
 %make prefix=%{buildroot} PREFIX=%{buildroot} install 
 
 %files
 %doc LICENSE
-%config(noreplace) %{_sysconfdir}/findlib.conf
+%config(noreplace) %{_sysconfdir}/ocamlfind.conf
 %{_bindir}/*
 %{_mandir}/man*/*
 %{_libdir}/ocaml/bigarray
