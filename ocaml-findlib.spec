@@ -7,8 +7,8 @@
 
 Summary:	A module packaging tool for OCaml
 Name:		ocaml-%{up_name}
-Version:	1.8.0
-Release:	3
+Version:	1.9.5
+Release:	1
 Group:		Development/Other
 License:	MIT-style
 Url:            http://projects.camlcity.org/projects/findlib.html
@@ -16,7 +16,6 @@ Source0:        http://download.camlcity.org/download/%{up_name}-%{version}.tar.
 BuildRequires:  ocaml-compiler
 BuildRequires:  ocaml-compiler-libs
 BuildRequires:  ocaml-camlp4
-BuildRequires:  ocaml-x11
 BuildRequires:	pkgconfig(ncurses)
 Requires:       ocaml-compiler = %{ocaml_version}
 Obsoletes:      %{up_name}
@@ -78,12 +77,11 @@ rm doc/guide-html/TIMESTAMP
 %{_libdir}/ocaml/compiler-libs/META
 %{_libdir}/ocaml/dynlink
 %{_libdir}/ocaml/findlib
-%{_libdir}/ocaml/graphics
 %{_libdir}/ocaml/stdlib
 %{_libdir}/ocaml/str
 %{_libdir}/ocaml/threads/META
 %{_libdir}/ocaml/topfind
-%{_libdir}/ocaml/raw_spacetime/META
+%{_libdir}/ocaml/ocamlbuild/META
 %{_libdir}/ocaml/ocamldoc/META
 
 %{_libdir}/ocaml/unix
