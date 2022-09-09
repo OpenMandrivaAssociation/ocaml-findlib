@@ -16,6 +16,7 @@ Source0:        http://download.camlcity.org/download/%{up_name}-%{version}.tar.
 BuildRequires:  ocaml-compiler
 BuildRequires:  ocaml-compiler-libs
 BuildRequires:  ocaml-camlp4
+BuildRequires:	ocaml-ocamlbuild
 BuildRequires:	pkgconfig(ncurses)
 Requires:       ocaml-compiler = %{ocaml_version}
 Obsoletes:      %{up_name}
