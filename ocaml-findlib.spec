@@ -15,7 +15,6 @@ Url:            http://projects.camlcity.org/projects/findlib.html
 Source0:        http://download.camlcity.org/download/%{up_name}-%{version}.tar.gz
 BuildRequires:  ocaml-compiler
 BuildRequires:  ocaml-compiler-libs
-BuildRequires:  ocaml-camlp4
 BuildRequires:	ocaml-ocamlbuild
 BuildRequires:	pkgconfig(ncurses)
 Requires:       ocaml-compiler = %{ocaml_version}
@@ -68,24 +67,31 @@ rm doc/guide-html/TIMESTAMP
 %install
 %make prefix=%{buildroot} PREFIX=%{buildroot} install 
 
+# We seem to get this from ocaml-compiler
+rm -rf %{buildroot}%{_libdir}/ocaml/dynlink/META \
+	%{buildroot}%{_libdir}/ocaml/ocamldoc/META \
+	%{buildroot}%{_libdir}/ocaml/stdlib/META \
+	%{buildroot}%{_libdir}/ocaml/str/META \
+	%{buildroot}%{_libdir}/ocaml/threads/META \
+	%{buildroot}%{_libdir}/ocaml/runtime_events/META \
+	%{buildroot}%{_libdir}/ocaml/unix/META
+# Empty directories are useless
+# (They may have been emptied by deleting the superfluous
+# duplicated META files)
+for i in %{buildroot}%{_libdir}/ocaml/*; do
+	rmdir $i || :
+done
+
 %files
 %doc LICENSE
 %config(noreplace) %{_sysconfdir}/ocamlfind.conf
 %{_bindir}/*
 %{_mandir}/man*/*
-%{_libdir}/ocaml/bigarray
 %{_libdir}/ocaml/bytes
 %{_libdir}/ocaml/compiler-libs/META
-%{_libdir}/ocaml/dynlink
 %{_libdir}/ocaml/findlib
-%{_libdir}/ocaml/stdlib
-%{_libdir}/ocaml/str
-%{_libdir}/ocaml/threads/META
 %{_libdir}/ocaml/topfind
 %{_libdir}/ocaml/ocamlbuild/META
-%{_libdir}/ocaml/ocamldoc/META
-
-%{_libdir}/ocaml/unix
 %ifnarch %arm
 %exclude %{_libdir}/ocaml/findlib/*.a
 %exclude %{_libdir}/ocaml/findlib/*.cmxa
