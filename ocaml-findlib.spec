@@ -88,10 +88,10 @@ done
 %{_bindir}/*
 %{_mandir}/man*/*
 %{_libdir}/ocaml/bytes
-%{_libdir}/ocaml/compiler-libs/META
+#{_libdir}/ocaml/compiler-libs/META
 %{_libdir}/ocaml/findlib
 %{_libdir}/ocaml/topfind
-%{_libdir}/ocaml/ocamlbuild/META
+#{_libdir}/ocaml/ocamlbuild/META
 %ifnarch %arm
 %exclude %{_libdir}/ocaml/findlib/*.a
 %exclude %{_libdir}/ocaml/findlib/*.cmxa
