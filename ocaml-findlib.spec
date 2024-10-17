@@ -11,7 +11,7 @@ Version:	1.9.6
 Release:	3
 Group:		Development/Other
 License:	MIT-style
-Url:            http://projects.camlcity.org/projects/findlib.html
+Url:            https://projects.camlcity.org/projects/findlib.html
 Source0:        http://download.camlcity.org/download/%{up_name}-%{version}.tar.gz
 BuildRequires:  ocaml-compiler
 BuildRequires:  ocaml-compiler-libs
