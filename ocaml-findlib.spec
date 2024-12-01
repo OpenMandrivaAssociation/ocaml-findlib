@@ -7,8 +7,8 @@
 
 Summary:	A module packaging tool for OCaml
 Name:		ocaml-%{up_name}
-Version:	1.9.6
-Release:	4
+Version:	1.9.7
+Release:	1
 Group:		Development/Other
 License:	MIT-style
 Url:            https://projects.camlcity.org/projects/findlib.html
@@ -19,6 +19,9 @@ BuildRequires:	ocaml-ocamlbuild
 BuildRequires:	pkgconfig(ncurses)
 Requires:       ocaml-compiler = %{ocaml_version}
 Obsoletes:      %{up_name}
+
+%patchlist
+findlib-1.9.7-compile.patch
 
 %description
 The findlib library provides a scheme to manage reusable software
@@ -43,7 +46,7 @@ The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
 
 %prep
-%setup -q -n %{up_name}-%{version}
+%autosetup -p1 -n %{up_name}-%{version}
 
 %build
 

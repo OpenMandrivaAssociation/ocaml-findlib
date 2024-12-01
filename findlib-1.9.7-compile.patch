@@ -1,0 +1,25 @@
+diff -up findlib-1.9.7/configure.omv~ findlib-1.9.7/configure
+--- findlib-1.9.7/configure.omv~	2024-12-01 17:05:55.609369358 +0100
++++ findlib-1.9.7/configure	2024-12-01 17:07:01.310131718 +0100
+@@ -591,7 +591,7 @@ fi
+ have_natdynlink=0
+ natdynlink=""
+ camlp4_dynlink=""
+-if [ -f "${ocaml_core_stdlib}/${dynlink_subdir:?}/dynlink.cmxa" ]; then
++if [ -f "${ocaml_core_stdlib}/${dynlink_subdir}/dynlink.cmxa" ]; then
+     have_natdynlink=1
+     natdynlink="archive(native) = \"dynlink.cmxa\""
+     camlp4_dynlink="dynlink"
+@@ -687,9 +687,9 @@ for lib in $generated_META $lbytes; do
+         -e "s|%%interfaces%%|${if}|g" \
+         -e "s|%%findlib_version%%|${version}|g" \
+         -e "s|%%natdynlink%%|${natdynlink}|g" \
+-        -e "s|%%dynlink_dir%%|${dynlink_dir:?}|g" \
+-        -e "s|%%unix_dir%%|${unix_dir:?}|g" \
+-        -e "s|%%str_dir%%|${str_dir:?}|g" \
++        -e "s|%%dynlink_dir%%|${dynlink_dir}|g" \
++        -e "s|%%unix_dir%%|${unix_dir}|g" \
++        -e "s|%%str_dir%%|${str_dir}|g" \
+         site-lib-src/"$lib"/META.in > site-lib-src/"$lib"/META
+ 
+     echo "Configuration for $lib written to site-lib-src/$lib/META"
