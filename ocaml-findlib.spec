@@ -7,7 +7,7 @@
 
 Summary:	A module packaging tool for OCaml
 Name:		ocaml-%{up_name}
-Version:	1.9.7
+Version:	1.9.8
 Release:	1
 Group:		Development/Other
 License:	MIT-style
