@@ -13,6 +13,11 @@ Group:		Development/Other
 License:	MIT-style
 Url:            https://projects.camlcity.org/projects/findlib.html
 Source0:        http://download.camlcity.org/download/%{up_name}-%{version}.tar.gz
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:  ocaml-compiler
 BuildRequires:  ocaml-compiler-libs
 BuildRequires:	ocaml-ocamlbuild
