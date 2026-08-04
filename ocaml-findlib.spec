@@ -8,7 +8,7 @@
 Summary:	A module packaging tool for OCaml
 Name:		ocaml-%{up_name}
 Version:	1.9.8
-Release:	1
+Release:	2
 Group:		Development/Other
 License:	MIT-style
 Url:            https://projects.camlcity.org/projects/findlib.html
@@ -22,7 +22,7 @@ BuildRequires:  ocaml-compiler
 BuildRequires:  ocaml-compiler-libs
 BuildRequires:	ocaml-ocamlbuild
 BuildRequires:	pkgconfig(ncurses)
-Requires:       ocaml-compiler = %{ocaml_version}
+Requires:	ocaml-compiler >= %{ocaml_version}
 Obsoletes:      %{up_name}
 
 %patchlist
